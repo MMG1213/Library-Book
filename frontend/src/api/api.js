@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8000', 
+  baseURL: 'https://library-backend-f9bh.onrender.com', 
 });
 
 export const login = (data) => API.post('/auth/login', data);
