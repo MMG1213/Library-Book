@@ -1,27 +1,31 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { register } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [form, setForm] = useState({ name: "", phone: "", username: "", password: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", username: "", password: "" });
   const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await register(form);
-    alert("Registered successfully");
-    navigate("/");
+    try {
+      await register(formData);
+      alert("Account created successfully");
+      navigate("/");
+    } catch (error) {
+      alert("Error during registration");
+    }
   };
 
   return (
-    <div>
-      <h2>Create an Account</h2>
-      <form onSubmit={handleRegister}>
-        <input placeholder="Name" onChange={(e) => setForm({ ...form, name: e.target.value })} />
-        <input placeholder="Phone" onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-        <input placeholder="Username" onChange={(e) => setForm({ ...form, username: e.target.value })} />
-        <input type="password" placeholder="Password" onChange={(e) => setForm({ ...form, password: e.target.value })} />
-        <button>Register</button>
+    <div className="container">
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <input placeholder="Full Name" onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+        <input placeholder="Phone" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+        <input placeholder="Username" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+        <input type="password" placeholder="Password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+        <button type="submit">Register</button>
       </form>
     </div>
   );
