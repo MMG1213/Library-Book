@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { login } from "../api/api";
 
 function Login() {
@@ -19,26 +19,33 @@ function Login() {
   };
 
   return (
-    <div style={{
-      background: "linear-gradient(to bottom, #f0f5f9, #dfeef5)",
-      height: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column"
-    }}>
-      <h1 style={{ color: "#2a4d69", marginBottom: "20px" }}> Library Books Reservation</h1>
+    <div
+      style={{
+        background: "linear-gradient(to bottom, #f0f5f9, #dfeef5)",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <h1 style={{ color: "#2a4d69", marginBottom: "20px" }}>
+        Library Books Reservation
+      </h1>
 
-      <div style={{
-        background: "#fff",
-        padding: "30px",
-        borderRadius: "12px",
-        boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-        width: "320px"
-      }}>
-        <h2 style={{ textAlign: "center", color: "#2a4d69" }}> Hi, Explore the New Books
-          LOGIN
+      <div
+        style={{
+          background: "#fff",
+          padding: "30px",
+          borderRadius: "12px",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+          width: "320px",
+        }}
+      >
+        <h2 style={{ textAlign: "center", color: "#2a4d69", marginBottom: "20px" }}>
+          Hi, Explore the New Books <br /> LOGIN
         </h2>
+
         <form onSubmit={handleLogin}>
           <input
             placeholder="Username"
@@ -55,8 +62,9 @@ function Login() {
           />
           <button style={{ width: "100%", padding: "10px" }}>Login</button>
         </form>
+
         <p style={{ textAlign: "center", marginTop: "10px" }}>
-          No account? <a href="/register">Create one</a>
+          No account? <Link to="/register">Create one</Link>
         </p>
       </div>
     </div>
