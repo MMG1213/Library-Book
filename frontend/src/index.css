@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fc;
+}
+
+h2 {
+  color: #2a4d69;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #2a4d69;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e3550;
+  transform: scale(1.05);
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #f0f5f9, #dfeef5);
+}
