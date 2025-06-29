@@ -3,6 +3,7 @@ import { register } from "../api/api";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+<<<<<<< HEAD
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -11,10 +12,14 @@ function Register() {
     gender: ""
   });
 
+=======
+  const [formData, setFormData] = useState({ name: "", phone: "", username: "", password: "" });
+>>>>>>> 1c31125b15d83744481c4587a8d2c3164e127bcc
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     const phoneValid = /^\d+$/.test(formData.phone);
     const userValid = /^[a-zA-Z0-9]+$/.test(formData.username);
     if (!phoneValid || !userValid || formData.password.length < 8) {
@@ -22,16 +27,23 @@ function Register() {
       return;
     }
 
+=======
+>>>>>>> 1c31125b15d83744481c4587a8d2c3164e127bcc
     try {
       await register(formData);
       alert("Account created successfully");
       navigate("/");
+<<<<<<< HEAD
     } catch {
+=======
+    } catch (error) {
+>>>>>>> 1c31125b15d83744481c4587a8d2c3164e127bcc
       alert("Error during registration");
     }
   };
 
   return (
+<<<<<<< HEAD
     <div style={{
       background: "#f0f5f9",
       height: "100vh",
@@ -80,6 +92,17 @@ function Register() {
           </button>
         </form>
       </div>
+=======
+    <div className="container">
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <input placeholder="Full Name" onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+        <input placeholder="Phone" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+        <input placeholder="Username" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+        <input type="password" placeholder="Password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+        <button type="submit">Register</button>
+      </form>
+>>>>>>> 1c31125b15d83744481c4587a8d2c3164e127bcc
     </div>
   );
 }
